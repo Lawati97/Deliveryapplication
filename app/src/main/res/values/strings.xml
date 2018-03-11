@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Delivery application</string>
+    <string-array name="restOrCof">
+        <item>Restaurants</item>
+        <item>Coffee shops</item>
+    </string-array>
+</resources>
