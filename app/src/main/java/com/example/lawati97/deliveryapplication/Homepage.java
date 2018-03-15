@@ -37,8 +37,8 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
         Homepage.this.startActivity(new Intent(Homepage.this, LogInActivity.class));
     }
     if(view == suggestARestaurant){
-        finish();
-        Homepage.this.startActivity(new Intent(Homepage.this, SuggestARestaurant.class));
+        //finish();
+        startActivity(new Intent(Homepage.this, SuggestARestaurant.class));
     }
     }
 }

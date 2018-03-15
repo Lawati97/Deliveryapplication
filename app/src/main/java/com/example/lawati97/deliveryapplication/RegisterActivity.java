@@ -57,7 +57,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             public void onClick(View view) {
                 Toast.makeText(RegisterActivity.this, "Log In page", Toast.LENGTH_SHORT);
                 loginPage = new Intent(RegisterActivity.this, LogInActivity.class);
-                RegisterActivity.this.startActivity(loginPage);
+                startActivity(loginPage);
+                finish();
             }
         });
 
@@ -103,8 +104,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             progressDialog.show();
                             toast = Toast.makeText(RegisterActivity.this, "Registration completed", Toast.LENGTH_SHORT);
                             toast.show();
-                            RegisterActivity.this.startActivity(homePage);
-
+                            startActivity(homePage);
+                            finish();
                         }
                         else{
                             toast = Toast.makeText(RegisterActivity.this, "Failed to Register Please try again", Toast.LENGTH_SHORT);

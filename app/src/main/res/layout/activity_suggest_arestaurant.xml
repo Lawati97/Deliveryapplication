@@ -77,17 +77,17 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cancelButtonInSR"
-        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintHorizontal_bias="0.359"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/suggestRestaurantOrCoffeeShop"
-        app:layout_constraintVertical_bias="0.363" />
+        app:layout_constraintVertical_bias="0.659" />
 
     <Button
         android:id="@+id/cancelButtonInSR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="72dp"
         android:layout_marginTop="8dp"
         android:onClick="onClick"
         android:text="Cancel"
@@ -95,5 +95,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/suggestRestaurantOrCoffeeShop"
-        app:layout_constraintVertical_bias="0.363" />
+        app:layout_constraintVertical_bias="0.67" />
+
+    <Button
+        android:id="@+id/uploadAnImage"
+        android:layout_width="165dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginTop="8dp"
+        android:text="Upload an image of the menu"
+        app:layout_constraintBottom_toTopOf="@+id/cancelButtonInSR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/suggestRestaurantOrCoffeeShop"
+        app:layout_constraintVertical_bias="0.477" />
+
+    <ImageView
+        android:id="@+id/imageOfTheUploadedMenu"
+        android:layout_width="80dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/submitButtoninSR"
+        app:layout_constraintEnd_toStartOf="@+id/uploadAnImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/suggestRestaurantOrCoffeeShop"
+        app:srcCompat="@android:drawable/screen_background_light_transparent" />
+
 </android.support.constraint.ConstraintLayout>

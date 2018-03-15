@@ -81,8 +81,9 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
                 if(task.isSuccessful()){
                     //start the profile activity
                     //Toast toast = Toast.makeText(LogInActivity.this, "Log In", Toast.LENGTH_SHORT);
+                    //finish();
+                    startActivity(new Intent(LogInActivity.this, Homepage.class));
                     finish();
-                    LogInActivity.this.startActivity(new Intent(LogInActivity.this, Homepage.class));
                 }
                 else if (!task.isSuccessful()){
                         Toast toast = Toast.makeText(LogInActivity.this, "Your email or password are incorrect", Toast.LENGTH_SHORT);

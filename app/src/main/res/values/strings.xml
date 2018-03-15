@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Delivery application</string>
     <string-array name="restOrCof">
-        <item>Restaurants</item>
-        <item>Coffee shops</item>
+        <item> </item>
+        <item>Ethics</item>
+        <item>Fast Food</item>
+        <item>Fast Casual</item>
+        <item>Casual Dinning</item>
+        <item>Fine Dining</item>
     </string-array>
 </resources>
