@@ -14,6 +14,7 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
     private FirebaseAuth firebaseAuth;
     private Button logout;
     private Button suggestARestaurant;
+    private Button restaurant;
 
 
     @Override
@@ -26,6 +27,8 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
         suggestARestaurant.setOnClickListener(this);
         logout = (Button) findViewById(R.id.logOutFromHomePage);
         logout.setOnClickListener(this);
+        restaurant = (Button) findViewById(R.id.RestaurantList);
+        restaurant.setOnClickListener(this);
 
     }
 
@@ -39,6 +42,9 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
     if(view == suggestARestaurant){
         //finish();
         startActivity(new Intent(Homepage.this, SuggestARestaurant.class));
+    }
+    if(view == restaurant) {
+        startActivity(new Intent(Homepage.this, RestaurantList.class));
     }
     }
 }

@@ -38,11 +38,6 @@ public class RestaurantList extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         loadRestaurants();
 
-
-//  recyclerView = (RecyclerView)findViewById(R.id.recycler_food);
-//        recyclerView.setHasFixedSize(true);
-//        layoutManager = new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(layoutManager);
     }
 
     private void loadRestaurants() {
