@@ -1,11 +1,18 @@
 package com.example.lawati97.deliveryapplication;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
 /**
  * Created by Joshua Sim on 3/16/2018.
  */
 
+@IgnoreExtraProperties
 public class RestaurantModel {
     private String Name, Image, MenuId;
+
+    public RestaurantModel() {
+        // Empty Constructor
+    }
 
     public RestaurantModel(String name, String image, String menuId) {
         Name = name;

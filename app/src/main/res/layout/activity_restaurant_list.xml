@@ -6,11 +6,12 @@
     android:layout_height="match_parent"
     tools:context="com.example.lawati97.deliveryapplication.RestaurantList">
 
-    <android.support.v7.app.AlertController.RecycleListView
+    <!--android.support.v7.app.AlertController.RecycleListView-->
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recycler_food"
         android:scrollbars="vertical"
-    />
+        />
 
 </android.support.constraint.ConstraintLayout>
