@@ -8,55 +8,55 @@
     tools:context="com.example.lawati97.deliveryapplication.Homepage">
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="163dp"
-        android:layout_height="146dp"
+        android:id="@+id/Favorite"
+        android:layout_width="160dp"
+        android:layout_height="112dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorAccent"
         android:text="Favorite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/SuggestARestaurant"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.667" />
+        app:layout_constraintVertical_bias="0.52" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="163dp"
-        android:layout_height="146dp"
+        android:id="@+id/Cate"
+        android:layout_width="160dp"
+        android:layout_height="112dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorAccent"
         android:text="Categories"
         app:layout_constraintBottom_toTopOf="@+id/SuggestARestaurant"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.569"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp" />
 
     <Button
         android:id="@+id/RestaurantList"
-        android:layout_width="163dp"
-        android:layout_height="146dp"
+        android:layout_width="160dp"
+        android:layout_height="112dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@color/colorAccent"
         android:text="Restaurant"
-        app:layout_constraintBottom_toTopOf="@+id/button6"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintBottom_toTopOf="@+id/Favorite"
+        app:layout_constraintEnd_toStartOf="@+id/Cate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.569" />
 
     <Button
         android:id="@+id/logOutFromHomePage"
@@ -94,8 +94,8 @@
 
     <Button
         android:id="@+id/SuggestARestaurant"
-        android:layout_width="163dp"
-        android:layout_height="146dp"
+        android:layout_width="160dp"
+        android:layout_height="112dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="8dp"
@@ -107,5 +107,29 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.667" />
+        app:layout_constraintVertical_bias="0.52"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp" />
+
+    <Button
+        android:id="@+id/Delivery"
+        android:layout_width="160dp"
+        android:layout_height="112dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorAccent"
+        android:text="Delivery"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.879"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp" />
+        />
+
+
 </android.support.constraint.ConstraintLayout>

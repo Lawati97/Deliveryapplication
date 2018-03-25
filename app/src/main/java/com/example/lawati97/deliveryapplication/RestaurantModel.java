@@ -8,17 +8,22 @@ import com.google.firebase.database.IgnoreExtraProperties;
 
 @IgnoreExtraProperties
 public class RestaurantModel {
-    private String Name, Image, MenuId;
+    private String Name, Image, MenuId, Delivery;
 
     public RestaurantModel() {
         // Empty Constructor
     }
 
-    public RestaurantModel(String name, String image, String menuId) {
+    public RestaurantModel(String name, String image, String menuId, String delivery) {
         Name = name;
         Image = image;
         MenuId = menuId;
+        Delivery = delivery;
     }
+
+    public String getDelivery() {return Delivery;}
+
+    public void setDelivery(String delivery) {Delivery = delivery;}
 
     public String getName() {
         return Name;

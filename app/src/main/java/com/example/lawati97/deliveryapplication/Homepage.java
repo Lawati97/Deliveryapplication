@@ -15,6 +15,7 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
     private Button logout;
     private Button suggestARestaurant;
     private Button restaurant;
+    private Button delivery,fav,cate;
 
 
     @Override
@@ -29,6 +30,12 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
         logout.setOnClickListener(this);
         restaurant = (Button) findViewById(R.id.RestaurantList);
         restaurant.setOnClickListener(this);
+        delivery = (Button) findViewById(R.id.Delivery);
+        delivery.setOnClickListener(this);
+        fav = (Button) findViewById(R.id.Favorite);
+        fav.setOnClickListener(this);
+        cate = (Button) findViewById(R.id.Cate);
+        cate.setOnClickListener(this);
 
     }
 
@@ -46,5 +53,14 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
     if(view == restaurant) {
         startActivity(new Intent(Homepage.this, RestaurantList.class));
     }
+    if(view == delivery) {
+            startActivity(new Intent(Homepage.this, Delivery.class));
+        }
+    if(view == fav) {
+        startActivity(new Intent(Homepage.this, Fav.class));
+    }
+    if(view == cate) {
+            startActivity(new Intent(Homepage.this, Category.class));
+        }
     }
 }

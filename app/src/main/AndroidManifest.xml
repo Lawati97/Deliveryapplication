@@ -22,7 +22,19 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".Homepage" />
         <activity android:name=".SuggestARestaurant" />
-        <activity android:name=".RestaurantList"></activity>
+        <activity android:name=".RestaurantList" />
+        <activity
+            android:name=".Delivery"
+            android:label="@string/title_activity_delivery"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Fav"
+            android:label="@string/title_activity_fav"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Category"
+            android:label="@string/title_activity_category"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
