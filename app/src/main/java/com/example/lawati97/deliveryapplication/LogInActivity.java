@@ -27,6 +27,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         private FirebaseAuth firebaseAuth;
         private Intent homepage;
         private boolean toHomePage;
+        private boolean toLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +80,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressDialog.dismiss();
                 if(task.isSuccessful()){
-                    //start the profile activity
-                    //Toast toast = Toast.makeText(LogInActivity.this, "Log In", Toast.LENGTH_SHORT);
-                    //finish();
+
                     startActivity(new Intent(LogInActivity.this, Homepage.class));
                     finish();
                 }
@@ -93,10 +92,28 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         });
 
     }
+
+    private void Admin(){
+        String email = userName.getText().toString().trim().toLowerCase();
+        String password = passwordet.getText().toString().trim();
+        progressDialog.setMessage("Admin page is loading");
+        if(email.equals("admin")){
+            if(password.equals("123123")) {
+                toLogin = false;
+                progressDialog.show();
+                LogInActivity.this.startActivity(new Intent(LogInActivity.this, AdminPage.class));
+                finish();
+            }
+        }
+    }
     @Override
     public void onClick(View view) {
         if(view == loginButton){
-            LogIn();
+            toLogin = true;
+            Admin();
+            if(toLogin) {
+                LogIn();
+            }
         }
     }
 }
