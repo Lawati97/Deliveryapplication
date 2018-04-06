@@ -34,7 +34,8 @@
         <activity
             android:name=".Category"
             android:label="@string/title_activity_category"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".FoodList"></activity>
     </application>
 
 </manifest>

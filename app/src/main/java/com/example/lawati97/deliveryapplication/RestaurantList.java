@@ -1,5 +1,6 @@
 package com.example.lawati97.deliveryapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +18,7 @@ public class RestaurantList extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
+    FirebaseRecyclerAdapter<RestaurantModel,RestaurantViewHolder> adapter;
     FirebaseDatabase database;
     DatabaseReference restaurantList;
 
@@ -41,7 +43,7 @@ public class RestaurantList extends AppCompatActivity {
     }
 
     private void loadRestaurants() {
-        FirebaseRecyclerAdapter<RestaurantModel,RestaurantViewHolder> adapter = new FirebaseRecyclerAdapter<RestaurantModel, RestaurantViewHolder>(RestaurantModel.class,R.layout.food_menus,RestaurantViewHolder.class,restaurantList) {
+        adapter = new FirebaseRecyclerAdapter<RestaurantModel, RestaurantViewHolder>(RestaurantModel.class,R.layout.food_menus,RestaurantViewHolder.class,restaurantList) {
             @Override
             protected void populateViewHolder(RestaurantViewHolder viewHolder, RestaurantModel model, int position) {
                 viewHolder.txtRestaurantName.setText(model.getName());
@@ -51,7 +53,11 @@ public class RestaurantList extends AppCompatActivity {
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        Toast.makeText(RestaurantList.this, ""+clickItem.getName(), Toast.LENGTH_SHORT).show();
+                        //Get MenuId and send to new activity
+                        Intent foodList = new Intent(RestaurantList.this,FoodList.class);
+                        foodList.putExtra("MenuId",adapter.getRef(position).getKey());
+                        startActivity(foodList);
+                        //Toast.makeText(RestaurantList.this, ""+clickItem.getName(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }
