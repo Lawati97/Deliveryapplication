@@ -101,7 +101,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
             if(password.equals("123123")) {
                 toLogin = false;
                 progressDialog.show();
-                LogInActivity.this.startActivity(new Intent(LogInActivity.this, AdminPage.class));
+                startActivity(new Intent(LogInActivity.this, AdminPage.class));
                 finish();
             }
         }

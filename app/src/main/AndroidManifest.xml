@@ -19,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AdminPage" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".Homepage" />
         <activity android:name=".SuggestARestaurant" />
