@@ -22,7 +22,7 @@ public class RestaurantList extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference restaurantList;
 
-    FirebaseRecyclerAdapter<RestaurantModel,RestaurantViewHolder> adapter;
+    //FirebaseRecyclerAdapter<RestaurantModel,RestaurantViewHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
