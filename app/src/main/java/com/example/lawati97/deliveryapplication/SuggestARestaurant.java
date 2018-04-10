@@ -2,6 +2,7 @@ package com.example.lawati97.deliveryapplication;
 
 import android.content.Intent;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -15,6 +16,18 @@ import android.widget.Toast;
 import android.widget.Button;
 import android.net.Uri;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.util.UUID;
+
 public class SuggestARestaurant extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener{
     private static final int RESULT_LOAD_IMAGE =1;
 
@@ -26,13 +39,21 @@ public class SuggestARestaurant extends AppCompatActivity implements AdapterView
     private EditText phoneOfTheRestaurant;
     private ImageView imageViewMenu;
     private String text;
+    private String uriOfTheImage;
     private Uri selectedImage;
+    DatabaseReference databaseSuggestRestaurant;
+    FirebaseStorage storage;
+    StorageReference storageReference;
+    String nameOfTheRest;
+    String phoneNumber;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggest_arestaurant);
+
+        databaseSuggestRestaurant = FirebaseDatabase.getInstance().getReference("Suggested Restaurants");
         spinner = (Spinner) findViewById(R.id.suggestRestaurantOrCoffeeShop);
         submitRestOrCoff = (Button) findViewById(R.id.submitButtoninSR);
         cancelRequest = (Button) findViewById(R.id.cancelButtonInSR);
@@ -49,6 +70,9 @@ public class SuggestARestaurant extends AppCompatActivity implements AdapterView
         submitRestOrCoff.setOnClickListener(this);
         cancelRequest.setOnClickListener(this);
         uploadImageButton.setOnClickListener(this);
+
+        storage= FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
     }
 
     @Override
@@ -75,8 +99,8 @@ public class SuggestARestaurant extends AppCompatActivity implements AdapterView
 
         }
         if(view == submitRestOrCoff){
-            String nameOfTheRest = namOfTheRestaurant.getText().toString().trim();
-            String phoneNumber = phoneOfTheRestaurant.getText().toString().trim();
+             nameOfTheRest = namOfTheRestaurant.getText().toString().trim();
+             phoneNumber = phoneOfTheRestaurant.getText().toString().trim();
 
             if(TextUtils.isEmpty(nameOfTheRest)){
                 Toast.makeText(SuggestARestaurant.this,"Please enter the name of the restaurant", Toast.LENGTH_SHORT).show();
@@ -95,10 +119,35 @@ public class SuggestARestaurant extends AppCompatActivity implements AdapterView
                 Toast.makeText(SuggestARestaurant.this,"Please upload the restaurants menu", Toast.LENGTH_SHORT).show();
                 return;
             }
+            //AllPased
+            saveDataToFirebase();
+            saveImageToFirebase();
             Toast.makeText(SuggestARestaurant.this, "Thank you for submiting a request", Toast.LENGTH_SHORT).show();
             finish();
             SuggestARestaurant.this.startActivity(new Intent(SuggestARestaurant.this, Homepage.class));
         }
+    }
+
+    public void saveImageToFirebase(){
+        StorageReference ref = storageReference.child("imagesOfSuggestedRestMenu/"+ UUID.randomUUID().toString());
+        ref.putFile(selectedImage)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                //Toast.makeText(SuggestARestaurant.this, "Thank you for submiting an image", Toast.LENGTH_SHORT).show();
+            }
+    }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(SuggestARestaurant.this, "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void saveDataToFirebase(){
+        String id = databaseSuggestRestaurant.push().getKey();
+        SuggestRestSetGEt suggestRest = new SuggestRestSetGEt(id, nameOfTheRest, phoneNumber, text);
+        databaseSuggestRestaurant.child(id).setValue(suggestRest);
     }
 
     @Override

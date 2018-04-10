@@ -15,6 +15,30 @@
       },
       "oauth_client": [
         {
+          "client_id": "938105113273-aii9h7nfp63ph8q88p1pm9m9kr25g0sl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lawati97.deliveryapplication",
+            "certificate_hash": "059b7ce49637373d029644ddcd1dc4b794d4b3db"
+          }
+        },
+        {
+          "client_id": "938105113273-dakdr8begidu9orkb60loldvmlbscmgu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lawati97.deliveryapplication",
+            "certificate_hash": "fc354ae60fd2dc3b5a5394db7a0a4c15162a5ad9"
+          }
+        },
+        {
+          "client_id": "938105113273-qaldkuh8bfa84merqot7jdsk57246tfl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lawati97.deliveryapplication",
+            "certificate_hash": "c12e32f490b153c7f3bca73a2fa89203ac53774a"
+          }
+        },
+        {
           "client_id": "938105113273-0ojjqafcklc5sic74s1hvpgnid78gt84.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +53,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "938105113273-0ojjqafcklc5sic74s1hvpgnid78gt84.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
