@@ -66,18 +66,10 @@ public class Category extends AppCompatActivity {
 
                        //Toast.makeText(Category.this, ""+clickItem.getName(), Toast.LENGTH_SHORT).show();
 
-                     /*   Toast myToast = Toast.makeText(Category.this, ""+clickItem.getName(), Toast.LENGTH_SHORT);
-                        myToast.show();
-
-                        //Now the statement below gets the text displayed
-                        String displayedText = ((TextView)((LinearLayout)myToast.getView()).getChildAt(0)).getText().toString();
-
-                        //We will pass the text chosen in order to filter out which restaurans to list
                         Intent intent = new Intent(Category.this, FilteredResList.class);
-                        Bundle b = new Bundle();
-                        b.putString("Category",displayedText); // id
-                        intent.putExtras(b); //id  next to Intent
-                        startActivity(intent);*/
+                        final String name = clickItem.getName();
+                        intent.putExtra("Category", name);
+                        Category.this.startActivity(intent);
                     }
                 });
             }

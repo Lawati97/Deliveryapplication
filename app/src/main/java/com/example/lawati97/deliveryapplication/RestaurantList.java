@@ -1,5 +1,6 @@
 package com.example.lawati97.deliveryapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,11 +19,11 @@ public class RestaurantList extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
-    FirebaseRecyclerAdapter<RestaurantModel,RestaurantViewHolder> adapter;
     FirebaseDatabase database;
     DatabaseReference restaurantList;
+   // private Context mContext;
 
-    //FirebaseRecyclerAdapter<RestaurantModel,RestaurantViewHolder> adapter;
+    FirebaseRecyclerAdapter<RestaurantModel,RestaurantViewHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,8 @@ public class RestaurantList extends AppCompatActivity {
     }
 
     private void loadRestaurants() {
-        adapter = new FirebaseRecyclerAdapter<RestaurantModel, RestaurantViewHolder>(RestaurantModel.class,R.layout.food_menus,RestaurantViewHolder.class,restaurantList) {
+        FirebaseRecyclerAdapter<RestaurantModel,RestaurantViewHolder> adapter;
+        adapter = new FirebaseRecyclerAdapter<RestaurantModel, RestaurantViewHolder>(RestaurantModel.class, R.layout.food_menus,RestaurantViewHolder.class,restaurantList) {
             @Override
             protected void populateViewHolder(RestaurantViewHolder viewHolder, RestaurantModel model, int position) {
                 viewHolder.txtRestaurantName.setText(model.getName());
@@ -53,11 +55,13 @@ public class RestaurantList extends AppCompatActivity {
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        //Get MenuId and send to new activity
-                        Intent foodList = new Intent(RestaurantList.this,FoodList.class);
-                        foodList.putExtra("MenuId",adapter.getRef(position).getKey());
-                        startActivity(foodList);
-                        //Toast.makeText(RestaurantList.this, ""+clickItem.getName(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RestaurantList.this, ""+clickItem.getName(), Toast.LENGTH_SHORT).show();
+
+
+                        Intent intent = new Intent(RestaurantList.this, order_food.class);
+                        final String name = clickItem.getName();
+                        intent.putExtra("Image", name);
+                        RestaurantList.this.startActivity(intent);
                     }
                 });
             }
@@ -65,29 +69,17 @@ public class RestaurantList extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-//    private void loadListRestaurant(){
-//        adapter = new FirebaseRecyclerAdapter<RestaurantModel, RestaurantViewHolder>(RestaurantModel.class,
-//                R.layout.food_menus,
-//                RestaurantViewHolder.class,
-//                // RestaurantList.orderByChild("MenuId")
-//                ) {
-//            @Override
-//            protected void populateViewHolder(RestaurantViewHolder viewHolder, RestaurantModel model, int position) {
-//                viewHolder.txtRestaurantName.setText(model.getName());
-//                Picasso.with(getBaseContext()).load(model.getImage())
-//                        .into(viewHolder.imageView);
-//
-//                final RestaurantModel local = model;
-//                viewHolder.setItemClickListener(new ItemClickListener() {
-//                    @Override
-//                    public void onClick(View view, int position, boolean isLongClick) {
-//                        Toast.makeText(RestaurantList.this, ""+local.getName(), Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//            }
-//        }
-//
-//        //Set adapter
-//        recyclerView.setAdapter(adapter);
-//    }
+    class Item{
+        private String name;
+        public void setName(String name){
+            this.name = name;
+        }
+        public String getName(){
+            return name;
+        }
+        public String toString(){
+            return name;
+        }
+    }
+
 }

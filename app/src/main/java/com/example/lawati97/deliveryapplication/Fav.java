@@ -32,7 +32,7 @@ public class Fav extends AppCompatActivity {
 
         //Firebase
         database = FirebaseDatabase.getInstance();
-        fav = database.getReference("Category");
+        fav = database.getReference("Favorites");
 
         //Load restaurants
         recyclerView = (RecyclerView)findViewById(R.id.recycler_food);

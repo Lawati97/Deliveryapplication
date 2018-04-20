@@ -16,7 +16,7 @@ public class RestaurantViewHolder extends RecyclerView.ViewHolder implements Vie
 
     public TextView txtRestaurantName;
     public ImageView imageView;
-
+    public ImageView favView;
     private ItemClickListener itemClickListener;
 
     public RestaurantViewHolder(View itemView) {
@@ -24,6 +24,8 @@ public class RestaurantViewHolder extends RecyclerView.ViewHolder implements Vie
 
         txtRestaurantName = (TextView)itemView.findViewById(R.id.restaurant_name);
         imageView = (ImageView)itemView.findViewById(R.id.menu_image);
+        favView = (ImageView)itemView.findViewById(R.id.fav);
+
 
         itemView.setOnClickListener(this);
     }

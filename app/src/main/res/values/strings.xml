@@ -18,4 +18,5 @@
     <string name="title_activity_delivery">Delivery</string>
     <string name="title_activity_fav">Fav</string>
     <string name="title_activity_category">Category</string>
+    <string name="title_activity_order_food">order_food</string>
 </resources>

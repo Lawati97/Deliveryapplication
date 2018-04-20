@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
@@ -34,11 +36,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private Intent loginPage;
     private Intent homePage;
     private Toast toast;
-
+    FirebaseDatabase database;
+    DatabaseReference user,newUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         setContentView(R.layout.activity_register);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
@@ -104,6 +110,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             progressDialog.show();
                             toast = Toast.makeText(RegisterActivity.this, "Registration completed", Toast.LENGTH_SHORT);
                             toast.show();
+
+                            user = database.getReference("User").child("uID");
+                            newUser = user.push();
+                            newUser.setValue(rUserEmailName);
+
                             startActivity(homePage);
                             finish();
                         }

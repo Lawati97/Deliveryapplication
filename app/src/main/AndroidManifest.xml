@@ -24,7 +24,6 @@
         <activity android:name=".Homepage" />
         <activity android:name=".SuggestARestaurant" />
         <activity android:name=".RestaurantList" />
-        <activity android:name=".FilteredResList" />
         <activity
             android:name=".Delivery"
             android:label="@string/title_activity_delivery"
