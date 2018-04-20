@@ -49,18 +49,22 @@ public class Category extends AppCompatActivity {
     }
 
     private void loadRestaurants() {
-        FirebaseRecyclerAdapter<RestaurantModel,RestaurantViewHolder> adapter = new FirebaseRecyclerAdapter<RestaurantModel, RestaurantViewHolder>(RestaurantModel.class,R.layout.food_menus,RestaurantViewHolder.class,category) {
+        //adapter = new FirebaseRecyclerAdapter<RestaurantModel,RestaurantViewHolder>
+        adapter = new FirebaseRecyclerAdapter<RestaurantModel, RestaurantViewHolder>(RestaurantModel.class,R.layout.food_menus,RestaurantViewHolder.class,category) {
             @Override
             protected void populateViewHolder(RestaurantViewHolder viewHolder, RestaurantModel model, int position) {
                 viewHolder.txtRestaurantName.setText(model.getName());
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.imageView);
-                final RestaurantModel clickItem = model;
+                RestaurantModel clickItem = model;
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
+                        Intent fResList = new Intent(Category.this,FilteredResList.class);
+                        fResList.putExtra("Category",adapter.getRef(position).getKey());
+                        startActivity(fResList);
 
-                       Toast.makeText(Category.this, ""+clickItem.getName(), Toast.LENGTH_SHORT).show();
+                       //Toast.makeText(Category.this, ""+clickItem.getName(), Toast.LENGTH_SHORT).show();
 
                      /*   Toast myToast = Toast.makeText(Category.this, ""+clickItem.getName(), Toast.LENGTH_SHORT);
                         myToast.show();

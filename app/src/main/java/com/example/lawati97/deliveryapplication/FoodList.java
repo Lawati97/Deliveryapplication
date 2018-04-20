@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -22,6 +23,7 @@ public class FoodList extends AppCompatActivity {
     DatabaseReference foodList;
 
     String menuId="";
+    //public ImageView image;
 
     FirebaseRecyclerAdapter<FoodModel,FoodViewHolder> adapter;
 
@@ -29,10 +31,12 @@ public class FoodList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_list);
-
+        
         //Firebase
         database = FirebaseDatabase.getInstance();
         foodList = database.getReference("Menu");
+        //DatabaseReference menuRef = menuRef.child("Menu").child("Image");
+
 
         recyclerView = (RecyclerView)findViewById(R.id.recycler_menu);
         recyclerView.setHasFixedSize(true);
@@ -48,6 +52,9 @@ public class FoodList extends AppCompatActivity {
 
     }
 
+//    private void loadListFood(String menuId){
+//        image = (ImageView) findViewById(R.id.menu1);
+//    }
     private void loadListFood(String menuId) {
         adapter = new FirebaseRecyclerAdapter<FoodModel, FoodViewHolder>(FoodModel.class,
                 R.layout.food_item,

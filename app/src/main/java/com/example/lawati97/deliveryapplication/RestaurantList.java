@@ -49,7 +49,7 @@ public class RestaurantList extends AppCompatActivity {
                 viewHolder.txtRestaurantName.setText(model.getName());
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.imageView);
-                final RestaurantModel clickItem = model;
+                RestaurantModel clickItem = model;
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
