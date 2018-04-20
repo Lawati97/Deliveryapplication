@@ -23,7 +23,8 @@ public class FoodList extends AppCompatActivity {
     DatabaseReference foodList;
 
     String menuId="";
-    //public ImageView image;
+//    public ImageView food_image;
+//    food_image = (ImageView)findViewById(R.id.menu_image);
 
     FirebaseRecyclerAdapter<FoodModel,FoodViewHolder> adapter;
 
@@ -51,9 +52,12 @@ public class FoodList extends AppCompatActivity {
         }
 
     }
-
+//    FoodModel model;
 //    private void loadListFood(String menuId){
-//        image = (ImageView) findViewById(R.id.menu1);
+//        foodList.orderByChild("MenuId").equalTo(menuId);
+//        Picasso.with(getBaseContext()).load(model.getImage())
+//                .into(food_image);
+//
 //    }
     private void loadListFood(String menuId) {
         adapter = new FirebaseRecyclerAdapter<FoodModel, FoodViewHolder>(FoodModel.class,

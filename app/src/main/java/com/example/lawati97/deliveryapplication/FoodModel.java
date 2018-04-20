@@ -1,7 +1,7 @@
 package com.example.lawati97.deliveryapplication;
 
 public class FoodModel {
-    private String Name, Image, Description, Price, MenuId;
+    private String Name, Image, MenuId;
 
     public FoodModel() {
     }
