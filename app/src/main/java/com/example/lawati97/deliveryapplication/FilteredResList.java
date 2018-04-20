@@ -36,7 +36,7 @@ public class FilteredResList extends AppCompatActivity {
 
         //Firebase
         database = FirebaseDatabase.getInstance();
-        foodList = database.getReference("Category");
+        foodList = database.getReference("Food");
         //DatabaseReference menuRef = menuRef.child("Menu").child("Image");
 
 

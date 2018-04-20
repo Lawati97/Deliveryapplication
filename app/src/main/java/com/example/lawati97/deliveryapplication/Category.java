@@ -56,20 +56,20 @@ public class Category extends AppCompatActivity {
                 viewHolder.txtRestaurantName.setText(model.getName());
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.imageView);
-                RestaurantModel clickItem = model;
+                final RestaurantModel clickItem = model;
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
                         Intent fResList = new Intent(Category.this,FilteredResList.class);
-                        fResList.putExtra("Category",adapter.getRef(position).getKey());
+                        fResList.putExtra("CatId",adapter.getRef(position).getKey());
                         startActivity(fResList);
 
                        //Toast.makeText(Category.this, ""+clickItem.getName(), Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(Category.this, FilteredResList.class);
-                        final String name = clickItem.getName();
-                        intent.putExtra("Category", name);
-                        Category.this.startActivity(intent);
+//                        Intent intent = new Intent(Category.this, FilteredResList.class);
+//                        final String name = clickItem.getName();
+//                        intent.putExtra("Category", name);
+//                        Category.this.startActivity(intent);
                     }
                 });
             }
